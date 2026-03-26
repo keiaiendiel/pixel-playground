@@ -89,6 +89,20 @@
       pointer-events: none;
     }
 
+    #hint {
+      position: fixed;
+      bottom: 48px;
+      left: 0; right: 0;
+      text-align: center;
+      font-size: 10px;
+      color: rgba(255,255,255,0.15);
+      pointer-events: none;
+      z-index: 19;
+      transition: opacity 1s ease;
+    }
+
+    #hint.gone { opacity: 0; }
+
     /* ── Info panel ── */
     #info-panel {
       position: fixed;
@@ -151,6 +165,7 @@
 </head>
 <body>
   <div id="loading">loading</div>
+  <div id="hint">touch to interact · arrows or buttons to navigate</div>
   <iframe id="sketch-frame" allow="camera; microphone; autoplay"></iframe>
 
   <!-- Always-visible navigation bar -->
@@ -289,6 +304,16 @@
         case 'Escape': if (infoVisible) { infoVisible = false; infoPanel.classList.remove('visible'); } break;
       }
     }
+
+    // Hide hint after first interaction
+    const hint = document.getElementById('hint');
+    function hideHint() {
+      if (hint && !hint.classList.contains('gone')) hint.classList.add('gone');
+    }
+    document.addEventListener('click', hideHint, { once: true });
+    document.addEventListener('touchstart', hideHint, { once: true });
+    document.addEventListener('keydown', hideHint, { once: true });
+    setTimeout(hideHint, 10000);
 
     // Listen on parent document (works when parent has focus)
     document.addEventListener('keydown', (e) => {
