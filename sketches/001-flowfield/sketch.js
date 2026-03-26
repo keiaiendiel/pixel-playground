@@ -75,13 +75,9 @@ function mousePressed() {
   }
   twoPiMultiplier = Math.random() * 3;
   trail = 5 + Math.random() * 25;
-  return false;
 }
 
-function touchStarted() {
-  mousePressed();
-  return false;
-}
+function touchStarted() { }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);

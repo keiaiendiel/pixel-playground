@@ -64,7 +64,6 @@ function mousePressed() {
   cells = new Array(Math.floor(width / W));
   for (let i = 0; i < cells.length; i++) cells[i] = 0;
   cells[Math.floor(cells.length / 2)] = 1;
-  return false;
 }
 
 function windowResized() { resizeCanvas(windowWidth, windowHeight); mousePressed(); }

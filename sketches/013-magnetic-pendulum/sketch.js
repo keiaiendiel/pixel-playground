@@ -126,7 +126,6 @@ function draw() {
 
 function mousePressed() {
   spawnPendulum(mouseX, mouseY);
-  return false;
 }
 
 function windowResized() {
@@ -134,7 +133,4 @@ function windowResized() {
   background(0);
 }
 
-function touchStarted() {
-  spawnPendulum(mouseX, mouseY);
-  return false;
-}
+function touchStarted() { }

@@ -107,7 +107,7 @@ function draw() {
   updatePixels();
 }
 
-function mousePressed() { generateBase(); return false; }
+function mousePressed() { generateBase(); }
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   baseImg.resizeCanvas(width, height);

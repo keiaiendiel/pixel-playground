@@ -75,7 +75,6 @@ function mousePressed() {
     w.speed = 0.02 + Math.random() * 0.03;
     w.phase = Math.random() * TWO_PI;
   }
-  return false;
 }
 
 function windowResized() {

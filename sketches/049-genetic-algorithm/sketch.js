@@ -162,6 +162,6 @@ function mouseDragged() {
   obstacles.push({ x: mouseX, y: mouseY, r: 20 });
 }
 
-function mousePressed() { return false; }
+function mousePressed() { }
 function windowResized() { resizeCanvas(windowWidth, windowHeight); obstacles = []; initPop(); generation = 0; lifeCounter = 0; }
 function touchStarted() { }

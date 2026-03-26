@@ -67,7 +67,6 @@ function mousePressed() {
   if (movers.length < MAX_MOVERS) {
     movers.push(makeMover(mouseX, mouseY, 1 + Math.random() * 9));
   }
-  return false;
 }
 
 function mouseDragged() {

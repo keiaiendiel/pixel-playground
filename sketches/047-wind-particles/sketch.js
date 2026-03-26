@@ -80,7 +80,6 @@ function mousePressed() {
     randomGaussian(0, randomGaussian(0.5, 0.005)),
     randomGaussian(0, randomGaussian(0.5, 0.005))
   );
-  return false;
 }
 
 function mouseReleased() { wind = originalWind.copy(); }

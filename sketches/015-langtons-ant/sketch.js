@@ -117,7 +117,6 @@ function mousePressed() {
     color: COLORS[ants.length % COLORS.length],
     id: ants.length + 1,
   });
-  return false;
 }
 
 function windowResized() { resizeCanvas(windowWidth, windowHeight); initGrid(); }

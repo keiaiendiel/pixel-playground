@@ -114,7 +114,6 @@ function draw() {
 
 function mousePressed() {
   initBlocks();
-  return false;
 }
 
 function windowResized() { resizeCanvas(windowWidth, windowHeight); initBlocks(); }

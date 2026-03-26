@@ -49,7 +49,6 @@ function draw() {
 
 function mousePressed() {
   initParticles();
-  return false;
 }
 
 function initParticles() {

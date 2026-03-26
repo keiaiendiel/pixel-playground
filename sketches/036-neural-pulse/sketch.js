@@ -129,7 +129,6 @@ function mousePressed() {
     if (d < closestDist) { closest = i; closestDist = d; }
   }
   firePulseFrom(closest);
-  return false;
 }
 
 function windowResized() { resizeCanvas(windowWidth, windowHeight); }

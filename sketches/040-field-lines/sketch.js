@@ -113,7 +113,6 @@ function mousePressed() {
   const q = charges.length % 2 === 0 ? 1 : -1;
   charges.push({ x: mouseX, y: mouseY, q });
   if (charges.length > 8) charges.shift();
-  return false;
 }
 
 function windowResized() { resizeCanvas(windowWidth, windowHeight); }

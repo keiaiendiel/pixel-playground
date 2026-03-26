@@ -64,7 +64,6 @@ function mousePressed() {
       movers.push(makeMover(mouseX, mouseY));
     }
   }
-  return false;
 }
 
 function windowResized() { resizeCanvas(windowWidth, windowHeight); background(0); }

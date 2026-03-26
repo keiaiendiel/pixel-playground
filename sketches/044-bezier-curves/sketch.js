@@ -39,7 +39,6 @@ function draw() {
 
 function mousePressed() {
   background(0);
-  return false;
 }
 
 function windowResized() { resizeCanvas(windowWidth, windowHeight); background(0); }
