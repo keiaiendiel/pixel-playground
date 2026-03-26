@@ -8,11 +8,11 @@ const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 const params = new URLSearchParams(window.location.search);
 const SEED = parseInt(params.get('seed')) || Date.now();
 
-const NUM_AGENTS = isMobile ? 2000 : 5000;
-const SENSE_DIST = 9;
+const NUM_AGENTS = isMobile ? 4000 : 12000;
+const SENSE_DIST = 12;
 const SENSE_ANGLE = Math.PI / 4;
-const TURN_SPEED = 0.3;
-const MOVE_SPEED = 1.5;
+const TURN_SPEED = 0.4;
+const MOVE_SPEED = 2.0;
 const DEPOSIT = 5;
 const DECAY = 0.97;
 

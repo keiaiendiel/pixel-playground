@@ -7,7 +7,7 @@ p5.disableFriendlyErrors = true;
 const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 const SEED = parseInt(new URLSearchParams(window.location.search).get('seed')) || Date.now();
 
-const SCALE = isMobile ? 3 : 2;
+const SCALE = isMobile ? 2 : 1;
 let gw, gh;
 
 function setup() {

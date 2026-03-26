@@ -14,9 +14,9 @@ const STEPS_PER_FRAME = isMobile ? 500 : 1500;
 const RULES = ['RL', 'RLR', 'LLRR', 'RLLR', 'LRRRRRLLR'];
 const COLORS = [
   [228, 228, 228],
-  [160, 160, 160],
-  [100, 100, 100],
-  [60, 60, 60],
+  [140, 140, 140],
+  [70, 70, 70],
+  [30, 30, 30],
   [201, 168, 76],
 ];
 

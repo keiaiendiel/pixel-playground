@@ -87,5 +87,10 @@ function draw() {
   }
 }
 
+function mousePressed() {
+  noiseSeed(Date.now());
+  return false;
+}
+
 function windowResized() { resizeCanvas(windowWidth, windowHeight); }
 function touchStarted() { }

@@ -36,8 +36,8 @@ function setup() {
     });
   }
 
-  for (let i = 0; i < 5; i++) {
-    spawnPendulum(cx + (Math.random() - 0.5) * 100, cy + (Math.random() - 0.5) * 100);
+  for (let i = 0; i < 8; i++) {
+    spawnPendulum(cx + (Math.random() - 0.5) * 200, cy + (Math.random() - 0.5) * 200);
   }
 
   background(0);
@@ -113,7 +113,14 @@ function draw() {
     if (p.trail.length > 2000) p.trail.shift();
 
     p.age++;
-    if (speed < 0.01 && p.age > 200) p.alive = false;
+    if (speed < 0.01 && p.age > 200) {
+      p.alive = false;
+      // Auto-spawn replacement
+      spawnPendulum(
+        width * 0.2 + Math.random() * width * 0.6,
+        height * 0.2 + Math.random() * height * 0.6
+      );
+    }
   }
 }
 

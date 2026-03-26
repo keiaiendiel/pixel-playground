@@ -24,7 +24,7 @@ function setup() {
   randomSeed(SEED);
   noiseSeed(SEED);
   frameRate(isMobile ? 30 : 40);
-  // monochrome
+  colorMode(HSB, 359, 100, 100, 100);
   createCanvas(windowWidth, windowHeight);
 
   cols = Math.floor(width / SCL);
@@ -117,8 +117,8 @@ class Particle {
 
   show() {
     const speed = this.vel.mag();
-    const brightness = Math.min(228, 30 + speed * 60);
-    stroke(brightness, brightness, brightness * 0.95, 180);
+    const hueValue = map(speed, 0, this.maxspeed, 350, 220);
+    stroke(hueValue, 100, Math.min(this.maxspeed * 50, 100), 100);
     strokeWeight(0.5);
     line(this.prevPos.x, this.prevPos.y, this.pos.x, this.pos.y);
     this.prevPos.x = this.pos.x;

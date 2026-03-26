@@ -32,7 +32,7 @@ function setup() {
 }
 
 function draw() {
-  const t = frameCount * 0.008;
+  const t = frameCount * 0.02;
   const mx = mouseX / width;
   const my = mouseY / height;
 

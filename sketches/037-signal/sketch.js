@@ -49,15 +49,15 @@ function draw() {
     noFill();
     beginShape();
     for (let x = 0; x < width; x += 2) {
-      const n = noise(x * wave.freq + wave.noiseOff, t * wave.speed);
-      const sine = Math.sin(x * freqMod + t * wave.speed * 3 + wave.phase);
-      const val = (n * 0.6 + sine * 0.4) * wave.amp * mouseAmp;
+      const sine1 = Math.sin(x * freqMod + t * wave.speed * 2 + wave.phase);
+      const sine2 = Math.sin(x * freqMod * 1.5 + t * wave.speed * 3 + wave.phase * 2);
+      const val = (sine1 * 0.7 + sine2 * 0.3) * wave.amp * mouseAmp;
 
       const y = wave.y + val;
       const brightness = 40 + Math.abs(val / wave.amp) * 140;
 
-      stroke(brightness, brightness, brightness, 80);
-      strokeWeight(wave.thickness);
+      stroke(brightness, brightness, brightness, 120);
+      strokeWeight(wave.thickness * 1.5);
       vertex(x, y);
     }
     endShape();

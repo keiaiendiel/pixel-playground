@@ -21,6 +21,7 @@ function setup() {
 
 function draw() {
   background(0);
+  colorMode(HSB, 360, 100, 100);
   const baseAngle = map(mouseY, 0, height, PI / 8, PI / 3);
   const wind = map(mouseX, 0, width, -0.15, 0.15);
   const t = frameCount * 0.01;
@@ -34,12 +35,12 @@ function drawBranch(len, baseAngle, wind, t, depth) {
   if (depth > MAX_DEPTH || len < 2) return;
 
   const sw = map(depth, 0, MAX_DEPTH, 4, 0.5);
-  const brightness = map(depth, 0, MAX_DEPTH, 255, 80);
   const noiseVal = noise(depth * 0.3, t + depth * 0.1);
   const wobble = (noiseVal - 0.5) * 0.1;
+  const hue = 360 - depth * (360 / MAX_DEPTH);
 
   strokeWeight(sw);
-  stroke(brightness, brightness * 0.9, brightness * 0.8, 200);
+  stroke(hue, 100, 100);
   line(0, 0, 0, -len);
   translate(0, -len);
 
@@ -47,7 +48,7 @@ function drawBranch(len, baseAngle, wind, t, depth) {
     const leafSize = map(depth, MAX_DEPTH - 3, MAX_DEPTH, 1, 4);
     const glow = 150 + Math.sin(t * 2 + depth) * 50;
     noStroke();
-    fill(201, 168, 76, 120);
+    fill(hue, 80, 100, 80);
     circle(0, 0, leafSize);
   }
 

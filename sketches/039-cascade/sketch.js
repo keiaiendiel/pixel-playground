@@ -104,7 +104,7 @@ function draw() {
     }
 
     const distFromTarget = Math.abs(b.y - b.targetY);
-    const brightness = b.landed ? 50 + (b.row % 4) * 10 : Math.min(228, 100 + distFromTarget);
+    const brightness = b.landed ? 120 + (b.row % 4) * 20 : Math.min(228, 150 + distFromTarget);
 
     fill(brightness, brightness, brightness);
     noStroke();
