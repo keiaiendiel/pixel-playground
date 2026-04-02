@@ -16,16 +16,22 @@ const NAMES = [
 ];
 
 const MAX_STARS = isMobile ? 20 : 35;
-const MAX_TRAIL = isMobile ? 100 : 200;
+const MAX_TRAIL = isMobile ? 80 : 150;
 
 let galaxy;
 let blackHole;
+let monoFont;
+
+function preload() {
+  monoFont = loadFont('../../fonts/DegularMono-Medium.otf');
+}
 
 function setup() {
   randomSeed(SEED);
   noiseSeed(SEED);
   createCanvas(windowWidth, windowHeight, WEBGL);
   frameRate(isMobile ? 30 : 60);
+  textFont(monoFont);
 
   blackHole = { pos: createVector(0, height / 4, 0), mass: 50000 };
   galaxy = makeGalaxy(0, 0, 0, floor(random(5, MAX_STARS)));
@@ -88,13 +94,13 @@ function draw() {
     s.trail.push(createVector(s.pos.x, s.pos.y, s.pos.z));
     if (s.trail.length > MAX_TRAIL) s.trail.shift();
 
-    // Trail
+    // Trail — thin, fading
     let grayValue = map(s.baseSpeed, 0.0005, 0.02, 50, 255);
     noFill();
-    stroke(grayValue);
     beginShape();
     for (let i = 0; i < s.trail.length; i++) {
-      strokeWeight(map(i, 0, s.trail.length, 0.5, 3));
+      strokeWeight(map(i, 0, s.trail.length, 0.3, 1.2));
+      stroke(grayValue, map(i, 0, s.trail.length, 0, 180));
       vertex(s.trail[i].x, s.trail[i].y, s.trail[i].z);
     }
     endShape();
@@ -105,6 +111,11 @@ function draw() {
     noStroke();
     fill(grayValue);
     sphere(2);
+    // Name
+    fill(255, 150);
+    textSize(10);
+    textAlign(LEFT);
+    text(s.name, 10, 0);
     pop();
   }
 
@@ -112,6 +123,8 @@ function draw() {
   push();
   translate(galaxy.cx, galaxy.cy, galaxy.cz);
   noStroke();
+  fill(255, 0, 0);
+  textSize(12);
   fill(255, 0, 0);
   sphere(10);
   pop();
@@ -126,6 +139,11 @@ function draw() {
   strokeWeight(0.2);
   torus(20, 0.5);
   sphere(10, 10, 8);
+  // Label
+  fill(255, 180);
+  noStroke();
+  textSize(12);
+  text('Black Hole', 30, 4);
   pop();
 }
 
